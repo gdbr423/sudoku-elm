@@ -1,5 +1,35 @@
 Name: Uguudei Bayartsetseg
 ID: 12209828 
 
-Report for Sudoku Project 
+Report for Sudoku Game Project 
 
+For this programming assignment, I've decided to develop a Sudoku web 
+application. The game can generate medium difficulty Sudoku puzzles 
+and has the option to see the solution for each puzzle. 
+
+I started off with thinking about how to represent the Sudoku Board. 
+Because Nested Lists of Chars (Board data structure) seemed like a data structure I could work with,
+I decided to use it to represent the 9x9 board. As can be reflected from the 
+Sudoku.elm file, I've spent a good amount of time figuring out and designing
+the inner mechanics of the Sudoku Board, as well as the helper functions 
+necessary to examine and modify the board. 
+
+The most challenging aspect of developing the app was figuring out how to
+make the connection between the UI elements and the back-end data structure. 
+Although working with HTML/CSS in order to find the fitting elements was 
+time-consuming, I managed to develop a grid appropriate for the game 
+and the helper functions for updating the Board data structure. Each cell 
+is made up of 9 small "buttons", from which a player can make their choice
+by pressing on one of them. To keep track of the player's choices, I've 
+attached onClick function for each of the buttons so that it has the capacity
+to update the main Board data structure. 
+
+Furthermore, to generate game puzzles, it was necessary to make use of elm's 
+Random library. Although initially it was confusing to deal with, I managed to 
+create a simple puzzle generating algorithm using the library. The game 
+generates a filled board before randomly removing ~60 cells to create a puzzle.
+
+Compared to the past assignments, the project really challenged me to learn more 
+about Random functions and UI components, as well as led me to figure out smarter ways of 
+manipulating Msgs and Cmds in a web app in order to find a solution that fits
+the complex structure of the Sudoku game. 
