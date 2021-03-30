@@ -1,11 +1,11 @@
-module Main exposing (main)
+module Index exposing (main)
 
 import Browser
 import Html exposing (Html)
 import Html.Events exposing (onClick)
 import Html.Attributes as Attr
 import List exposing (member, take, drop)
-import Random exposing (Generator, initialSeed, generate)
+import Random exposing (Generator, generate)
 import Random.List exposing (shuffle)
 import Sudoku exposing (Board, Cell, Position, get_cell, set_cell, empty_board, remove_cells, board_solved, ordered_pos)
 
@@ -148,7 +148,7 @@ cell_choice cell chosen pos =
     else
       Html.button ((onClick (Place cell pos))::(List.map map_style styles_default)) [ (Html.text (String.fromChar cell)) ]
 
--- Draws a list of buttons in a single cell
+-- Draws a grid of buttons in a single cell
 generate_choices : Cell -> Position -> List (Html Msg)
 generate_choices chosen_c pos = 
   let 

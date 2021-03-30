@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Main</title>
+  <title>Index</title>
   <style>body { padding: 0; margin: 0; }</style>
 </head>
 
@@ -5311,20 +5311,20 @@ var $author$project$Sudoku$ordered_pos = function () {
 								r7,
 								_Utils_ap(r8, r9))))))));
 }();
-var $author$project$Main$init = function (_v0) {
+var $author$project$Index$init = function (_v0) {
 	return _Utils_Tuple2(
 		{board: $author$project$Sudoku$empty_board, puzzle_cells: $author$project$Sudoku$ordered_pos, solution: $author$project$Sudoku$empty_board, won: false},
 		$elm$core$Platform$Cmd$none);
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Main$subscriptions = function (model) {
+var $author$project$Index$subscriptions = function (model) {
 	return $elm$core$Platform$Sub$none;
 };
-var $author$project$Main$NewPositions = function (a) {
+var $author$project$Index$NewPositions = function (a) {
 	return {$: 'NewPositions', a: a};
 };
-var $author$project$Main$NewRow = function (a) {
+var $author$project$Index$NewRow = function (a) {
 	return {$: 'NewRow', a: a};
 };
 var $elm$core$List$drop = F2(
@@ -5722,7 +5722,7 @@ var $elm$random$Random$generate = F2(
 				A2($elm$random$Random$map, tagger, generator)));
 	});
 var $elm$core$Debug$log = _Debug_log;
-var $author$project$Main$shiftLeft = F2(
+var $author$project$Index$shiftLeft = F2(
 	function (l, n) {
 		shiftLeft:
 		while (true) {
@@ -5743,7 +5743,7 @@ var $author$project$Main$shiftLeft = F2(
 					continue shiftLeft;
 				} else {
 					return _Debug_todo(
-						'Main',
+						'Index',
 						{
 							start: {line: 256, column: 12},
 							end: {line: 256, column: 22}
@@ -5752,15 +5752,15 @@ var $author$project$Main$shiftLeft = F2(
 			}
 		}
 	});
-var $author$project$Main$ordered_rows = function (r) {
-	var r2 = A2($author$project$Main$shiftLeft, r, 3);
-	var r3 = A2($author$project$Main$shiftLeft, r2, 3);
-	var r4 = A2($author$project$Main$shiftLeft, r3, 1);
-	var r5 = A2($author$project$Main$shiftLeft, r4, 3);
-	var r6 = A2($author$project$Main$shiftLeft, r5, 3);
-	var r7 = A2($author$project$Main$shiftLeft, r6, 1);
-	var r8 = A2($author$project$Main$shiftLeft, r7, 3);
-	var r9 = A2($author$project$Main$shiftLeft, r8, 3);
+var $author$project$Index$ordered_rows = function (r) {
+	var r2 = A2($author$project$Index$shiftLeft, r, 3);
+	var r3 = A2($author$project$Index$shiftLeft, r2, 3);
+	var r4 = A2($author$project$Index$shiftLeft, r3, 1);
+	var r5 = A2($author$project$Index$shiftLeft, r4, 3);
+	var r6 = A2($author$project$Index$shiftLeft, r5, 3);
+	var r7 = A2($author$project$Index$shiftLeft, r6, 1);
+	var r8 = A2($author$project$Index$shiftLeft, r7, 3);
+	var r9 = A2($author$project$Index$shiftLeft, r8, 3);
 	return _List_fromArray(
 		[r, r2, r3, r4, r5, r6, r7, r8, r9]);
 };
@@ -6370,7 +6370,7 @@ var $elm_community$random_extra$Random$List$shuffle = function (list) {
 			length,
 			A2($elm$random$Random$int, 0, length - 1)));
 };
-var $author$project$Main$row_gen = $elm_community$random_extra$Random$List$shuffle(
+var $author$project$Index$row_gen = $elm_community$random_extra$Random$List$shuffle(
 	_List_fromArray(
 		[
 			_Utils_chr('1'),
@@ -6383,7 +6383,7 @@ var $author$project$Main$row_gen = $elm_community$random_extra$Random$List$shuff
 			_Utils_chr('8'),
 			_Utils_chr('9')
 		]));
-var $author$project$Main$update = F2(
+var $author$project$Index$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
 			case 'Place':
@@ -6409,17 +6409,17 @@ var $author$project$Main$update = F2(
 			case 'Reset':
 				return _Utils_Tuple2(
 					model,
-					A2($elm$random$Random$generate, $author$project$Main$NewRow, $author$project$Main$row_gen));
+					A2($elm$random$Random$generate, $author$project$Index$NewRow, $author$project$Index$row_gen));
 			case 'NewRow':
 				var r = msg.a;
-				var rows = $author$project$Main$ordered_rows(r);
+				var rows = $author$project$Index$ordered_rows(r);
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{solution: rows}),
 					A2(
 						$elm$random$Random$generate,
-						$author$project$Main$NewPositions,
+						$author$project$Index$NewPositions,
 						$elm_community$random_extra$Random$List$shuffle($author$project$Sudoku$ordered_pos)));
 			default:
 				var pos = msg.a;
@@ -6434,21 +6434,21 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 		}
 	});
-var $author$project$Main$Reset = {$: 'Reset'};
-var $author$project$Main$Solve = {$: 'Solve'};
+var $author$project$Index$Reset = {$: 'Reset'};
+var $author$project$Index$Solve = {$: 'Solve'};
 var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$core$String$cons = _String_cons;
 var $elm$core$String$fromChar = function (_char) {
 	return A2($elm$core$String$cons, _char, '');
 };
-var $author$project$Main$Place = F2(
+var $author$project$Index$Place = F2(
 	function (a, b) {
 		return {$: 'Place', a: a, b: b};
 	});
 var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
 var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
-var $author$project$Main$map_style = function (_v0) {
+var $author$project$Index$map_style = function (_v0) {
 	var k = _v0.a;
 	var v = _v0.b;
 	return A2($elm$html$Html$Attributes$style, k, v);
@@ -6472,7 +6472,7 @@ var $elm$html$Html$Events$onClick = function (msg) {
 };
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
-var $author$project$Main$cell_choice = F3(
+var $author$project$Index$cell_choice = F3(
 	function (cell, chosen, pos) {
 		var styles_default = _List_fromArray(
 			[
@@ -6498,10 +6498,10 @@ var $author$project$Main$cell_choice = F3(
 				$elm$core$List$cons,
 				$elm$html$Html$Events$onClick(
 					A2(
-						$author$project$Main$Place,
+						$author$project$Index$Place,
 						_Utils_chr('0'),
 						pos)),
-				A2($elm$core$List$map, $author$project$Main$map_style, styles_chosen)),
+				A2($elm$core$List$map, $author$project$Index$map_style, styles_chosen)),
 			_List_fromArray(
 				[
 					$elm$html$Html$text(
@@ -6511,75 +6511,75 @@ var $author$project$Main$cell_choice = F3(
 			A2(
 				$elm$core$List$cons,
 				$elm$html$Html$Events$onClick(
-					A2($author$project$Main$Place, cell, pos)),
-				A2($elm$core$List$map, $author$project$Main$map_style, styles_default)),
+					A2($author$project$Index$Place, cell, pos)),
+				A2($elm$core$List$map, $author$project$Index$map_style, styles_default)),
 			_List_fromArray(
 				[
 					$elm$html$Html$text(
 					$elm$core$String$fromChar(cell))
 				]));
 	});
-var $author$project$Main$generate_choices = F2(
+var $author$project$Index$generate_choices = F2(
 	function (chosen_c, pos) {
 		var c9 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('9'),
 				false,
 				pos),
 			_Utils_chr('9'));
 		var c8 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('8'),
 				false,
 				pos),
 			_Utils_chr('8'));
 		var c7 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('7'),
 				false,
 				pos),
 			_Utils_chr('7'));
 		var c6 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('6'),
 				false,
 				pos),
 			_Utils_chr('6'));
 		var c5 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('5'),
 				false,
 				pos),
 			_Utils_chr('5'));
 		var c4 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('4'),
 				false,
 				pos),
 			_Utils_chr('4'));
 		var c3 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('3'),
 				false,
 				pos),
 			_Utils_chr('3'));
 		var c2 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('2'),
 				false,
 				pos),
 			_Utils_chr('2'));
 		var c1 = _Utils_Tuple2(
 			A3(
-				$author$project$Main$cell_choice,
+				$author$project$Index$cell_choice,
 				_Utils_chr('1'),
 				false,
 				pos),
@@ -6599,16 +6599,16 @@ var $author$project$Main$generate_choices = F2(
 			function (_v0) {
 				var a = _v0.a;
 				var b = _v0.b;
-				return _Utils_eq(b, chosen_c) ? A3($author$project$Main$cell_choice, b, true, pos) : a;
+				return _Utils_eq(b, chosen_c) ? A3($author$project$Index$cell_choice, b, true, pos) : a;
 			},
 			c) : _Debug_todo(
-			'Main',
+			'Index',
 			{
 				start: {line: 181, column: 7},
 				end: {line: 181, column: 17}
 			})('generate_choices: invalid cell choice!'));
 	});
-var $author$project$Main$box = F3(
+var $author$project$Index$box = F3(
 	function (pos, puzzle, board) {
 		var cell_val = A2($author$project$Sudoku$get_cell, pos, board);
 		var box_styles_grid = _List_fromArray(
@@ -6636,22 +6636,22 @@ var $author$project$Main$box = F3(
 			]);
 		return A2($elm$core$List$member, pos, puzzle) ? A2(
 			$elm$html$Html$div,
-			A2($elm$core$List$map, $author$project$Main$map_style, box_styles_default),
+			A2($elm$core$List$map, $author$project$Index$map_style, box_styles_default),
 			_List_fromArray(
 				[
 					$elm$html$Html$text(
 					$elm$core$String$fromChar(cell_val))
 				])) : A2(
 			$elm$html$Html$div,
-			A2($elm$core$List$map, $author$project$Main$map_style, box_styles_grid),
-			A2($author$project$Main$generate_choices, cell_val, pos));
+			A2($elm$core$List$map, $author$project$Index$map_style, box_styles_grid),
+			A2($author$project$Index$generate_choices, cell_val, pos));
 	});
-var $author$project$Main$game_board = F2(
+var $author$project$Index$game_board = F2(
 	function (puzzle, board) {
 		var boxes = A2(
 			$elm$core$List$map,
 			function (p) {
-				return A3($author$project$Main$box, p, puzzle, board);
+				return A3($author$project$Index$box, p, puzzle, board);
 			},
 			$author$project$Sudoku$ordered_pos);
 		var board_styles = _List_fromArray(
@@ -6668,11 +6668,11 @@ var $author$project$Main$game_board = F2(
 			]);
 		return A2(
 			$elm$html$Html$div,
-			A2($elm$core$List$map, $author$project$Main$map_style, board_styles),
+			A2($elm$core$List$map, $author$project$Index$map_style, board_styles),
 			boxes);
 	});
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
-var $author$project$Main$view = function (model) {
+var $author$project$Index$view = function (model) {
 	var solve_styles = _List_fromArray(
 		[
 			_Utils_Tuple2('float', 'left'),
@@ -6688,8 +6688,8 @@ var $author$project$Main$view = function (model) {
 		$elm$html$Html$button,
 		A2(
 			$elm$core$List$cons,
-			$elm$html$Html$Events$onClick($author$project$Main$Solve),
-			A2($elm$core$List$map, $author$project$Main$map_style, solve_styles)),
+			$elm$html$Html$Events$onClick($author$project$Index$Solve),
+			A2($elm$core$List$map, $author$project$Index$map_style, solve_styles)),
 		_List_fromArray(
 			[
 				$elm$html$Html$text('Solve It!')
@@ -6709,8 +6709,8 @@ var $author$project$Main$view = function (model) {
 		$elm$html$Html$button,
 		A2(
 			$elm$core$List$cons,
-			$elm$html$Html$Events$onClick($author$project$Main$Reset),
-			A2($elm$core$List$map, $author$project$Main$map_style, reset_styles)),
+			$elm$html$Html$Events$onClick($author$project$Index$Reset),
+			A2($elm$core$List$map, $author$project$Index$map_style, reset_styles)),
 		_List_fromArray(
 			[
 				$elm$html$Html$text('New Puzzle')
@@ -6726,7 +6726,7 @@ var $author$project$Main$view = function (model) {
 		]);
 	var won_message = A2(
 		$elm$html$Html$div,
-		A2($elm$core$List$map, $author$project$Main$map_style, msg_styles),
+		A2($elm$core$List$map, $author$project$Index$map_style, msg_styles),
 		_List_fromArray(
 			[
 				$elm$html$Html$text('Congratulations! You\'ve won!')
@@ -6739,7 +6739,7 @@ var $author$project$Main$view = function (model) {
 		]);
 	var header = A2(
 		$elm$html$Html$h1,
-		A2($elm$core$List$map, $author$project$Main$map_style, header_styles),
+		A2($elm$core$List$map, $author$project$Index$map_style, header_styles),
 		_List_fromArray(
 			[
 				$elm$html$Html$text('Sudoku Board Game')
@@ -6751,7 +6751,7 @@ var $author$project$Main$view = function (model) {
 		]);
 	var buttons = A2(
 		$elm$html$Html$div,
-		A2($elm$core$List$map, $author$project$Main$map_style, div_styles),
+		A2($elm$core$List$map, $author$project$Index$map_style, div_styles),
 		_List_fromArray(
 			[reset_button, solve_button]));
 	return (!model.won) ? A2(
@@ -6761,7 +6761,7 @@ var $author$project$Main$view = function (model) {
 			[
 				header,
 				buttons,
-				A2($author$project$Main$game_board, model.puzzle_cells, model.board)
+				A2($author$project$Index$game_board, model.puzzle_cells, model.board)
 			])) : A2(
 		$elm$html$Html$div,
 		_List_Nil,
@@ -6770,15 +6770,15 @@ var $author$project$Main$view = function (model) {
 				header,
 				buttons,
 				won_message,
-				A2($author$project$Main$game_board, model.puzzle_cells, model.board)
+				A2($author$project$Index$game_board, model.puzzle_cells, model.board)
 			]));
 };
-var $author$project$Main$main = $elm$browser$Browser$element(
-	{init: $author$project$Main$init, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
-_Platform_export({'Main':{'init':$author$project$Main$main(
+var $author$project$Index$main = $elm$browser$Browser$element(
+	{init: $author$project$Index$init, subscriptions: $author$project$Index$subscriptions, update: $author$project$Index$update, view: $author$project$Index$view});
+_Platform_export({'Index':{'init':$author$project$Index$main(
 	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
 
-  var app = Elm.Main.init({ node: document.getElementById("elm") });
+  var app = Elm.Index.init({ node: document.getElementById("elm") });
 }
 catch (e)
 {
